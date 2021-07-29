@@ -1,0 +1,15 @@
+1) receber uma requisicao do front
+controller: Post
+2) buscar o que essa requisicao esta pedindo
+controller -> service
+service -> mongoDB
+3) Talvez tenho que tratar os dados para se adequar ao formato abaixo
+body:
+[{
+    "id":  uid
+    "city": Belo Horizonte, (nome)
+    "statePostalCode": "MG"
+    "stateName": "Minas Gerais"
+}]
+4)Devolver os dados para o frontEnd
+controller: GET /cities?name=Belo
