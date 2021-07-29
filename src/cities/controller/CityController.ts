@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Controller, Get } from '@nestjs/common';
 import { CityService } from '../service/CityService';
 // GET /cities?name=Belo
@@ -5,7 +6,8 @@ import { CityService } from '../service/CityService';
 export class CityController {
   constructor(private readonly appService: CityService) {}
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  getCities(){
+    console.log(`estive ak 1`)
+    return this.appService.getCitiesByName();
   }
 }
