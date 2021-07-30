@@ -11,9 +11,8 @@ export class CityRepository {
     private cityModel: Model<CityDocument>
   ) {}
   
-  async findCitiesByName():  Promise<City[]>{
-    console.log(`estive ak 3`)
-    return this.cityModel.find({name: 'Ariquemes'}).exec();
+  async findCitiesByName(city):  Promise<City[]>{
+    return this.cityModel.find({name: {$regex: '^' + city, $options: 'i'}}).exec();
     //  return this.cityModel.create({ name: 'Jean-Luc Picard', statePostalCod: 'qualquer', stateName:'teste' });
   }
 }

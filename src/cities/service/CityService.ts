@@ -10,12 +10,11 @@ export class CityService {
     private cityRepository: CityRepository
   ) {}
 
-  async getCitiesByName() {
-    console.log(`estive ak 2`)
-    return this.cityRepository.findCitiesByName();
+  async getCitiesByName(city) {
+    return this.cityRepository.findCitiesByName(city);
   }
 
-  
+
 
 
 }

@@ -1,13 +1,13 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { CityService } from '../service/CityService';
+import { City } from '../repository/model/CityModel';
 // GET /cities?name=Belo
 @Controller('cities')
 export class CityController {
   constructor(private readonly appService: CityService) {}
-  @Get()
-  getCities(){
-    console.log(`estive ak 1`)
-    return this.appService.getCitiesByName();
+  @Get(':name')
+  getCities(@Param() params): Promise<City[]>{
+    return this.appService.getCitiesByName(params.name);
   }
 }
