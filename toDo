@@ -13,3 +13,5 @@ body:
 }]
 4)Devolver os dados para o frontEnd
 controller: GET /cities?name=Belo
+
+// falta ignorar acentuos

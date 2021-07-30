@@ -1,11 +1,11 @@
-import { CityRepository } from './cities/repository/CityRepository';
+import { MongoCityRepository } from './cities/repository/mongo/MongoCityRepository';
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CityController } from './cities/controller/CityController';
 import { CityService } from './cities/service/CityService';
-import { City, CitySchema } from './cities/repository/model/CityModel'
+import { City, CitySchema } from './cities/repository/mongo/model/CityModel'
 
 @Module({
   imports: [
@@ -14,6 +14,6 @@ import { City, CitySchema } from './cities/repository/model/CityModel'
 		MongooseModule.forFeature([{ name: City.name, schema: CitySchema }]),
   ],
   controllers: [CityController],
-  providers: [CityService, CityRepository],
+  providers: [CityService, MongoCityRepository],
 })
 export class AppModule {}

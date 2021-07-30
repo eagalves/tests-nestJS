@@ -7,10 +7,10 @@ export type CityDocument = City & Document;
 @Schema()
 export class City {
   @Prop()
-  name: string;
+  city: string;
 
   @Prop()
-  statePostalCod: string;
+  statePostalCode: string;
 
   @Prop()
   stateName: string;

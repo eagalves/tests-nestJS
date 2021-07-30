@@ -1,13 +1,15 @@
 /* eslint-disable prettier/prettier */
 import { Controller, Get, Param } from '@nestjs/common';
 import { CityService } from '../service/CityService';
-import { City } from '../repository/model/CityModel';
+import { CityResponse } from './response/CityResponse'
 // GET /cities?name=Belo
 @Controller('cities')
 export class CityController {
   constructor(private readonly appService: CityService) {}
   @Get(':name')
-  getCities(@Param() params): Promise<City[]>{
-    return this.appService.getCitiesByName(params.name);
+  async getCities(@Param() params): Promise<Array<CityResponse>>{
+    const cities = await this.appService.getCitiesByName(params.name);
+    return CityResponse.fromEntity(cities)
+  
   }
 }
